@@ -1,0 +1,151 @@
+KCaCC 0.26
+KCaKC 0.35
+eta1 4.49
+eta2 2
+r 0.001305
+alpha1 0.000641
+
+R 8.3144621
+T 310
+F 96485.3365
+RTF 26.71373024
+
+pHl 6.81
+pHi 6.91
+pHe 7.41
+kn 316.8
+kp 0.132
+a1 157.55
+a2 2.0096e-05
+a3 1.0306
+a4 1.3852e-06
+Cle 102.6
+Nae 140.2
+Ke 5.3
+He 3.89045145e-05
+HCO3e 40
+CO2e 1.6
+KCl 5.6
+KB 100
+KNa 15
+KH 0.00045
+La 4.4335448
+Lb 1.94580852
+Lt 0.05936638
+CO20 6.6001222
+Ul 51.73103744
+
+Sa
+
+St 57.62324394
+
+Sb
+
+wl 18.08131595
+GtNa 2017879.14976675
+aNkcc1 2.07117464
+GtK 146003.52417265
+GCl 1.82390313e+09
+GB 9.76799111
+G1 90.83564226
+aNaK 0.16060579
+GK 1.67223859e+08
+G4 1336.08948064
+
+len
+w0
+Sa_c
+Sa_ck
+Sa_k
+Sb_k
+sb_tri
+com_tri_ap
+sa_tri
+Sa_p
+sa
+cnct
+neigh
+ind
+cnct_clust
+neigh_clust
+ind_clust
+IC
+
+Ie
+Hy
+CO2l
+Hye
+HCO3l
+
+ICs
+IC6
+
+Sb3
+
+IC_clust
+
+k_f 25
+tau_max 10
+Df 283
+Fp 0.5
+k_beta 0.4
+K_p 0.2
+K_c 0.2
+K_h 0.08
+V_p 0.9
+K_bar 1.957e-5
+gamma 0.183
+K_PLC 0.07
+K_3K 0.4
+V_3K 0.05
+V_5K 0.05
+K_tau 0.1
+ct 3
+V_RyR 0.04
+K_RyR 0.2
+K_RyR2 0.15
+tau_RyR 1
+
+IC_clust_ca
+IC_clust_ca2
+IC_sing
+
+GKa 8.3612e+7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
