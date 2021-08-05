@@ -55,37 +55,37 @@ function [acinus, duct, verts, faces, tets, lnodes, lradii, lsegs] = read_ply(fn
   end
   
   % get the cell info
-  cell = struct([]);
+  cells = struct([]);
   for i = 1:ncell
     tokens = str2double(split(fgetl(pfile)));
-    cell(i).nverts = tokens(1);
-    cell(i).nfaces = tokens(3);
-    cell(i).ntets = tokens(5);
+    cells(i).nverts = tokens(1);
+    cells(i).nfaces = tokens(3);
+    cells(i).ntets = tokens(5);
   end
   
   % get the vertex data
-  verts = {ncell};
+  verts = cell(1,ncell);
   for i = 1:ncell
-    verts{i} = zeros(cell(i).nverts,3);
-    for j = 1:cell(i).nverts
+    verts{i} = zeros(cells(i).nverts,3);
+    for j = 1:cells(i).nverts
       verts{i}(j,:) = str2double(split(fgetl(pfile)));
     end
   end
   
   % get the face data
-  faces = {ncell};
+  faces = cell(1,ncell);
   for i = 1:ncell
-    faces{i} = zeros(cell(i).nfaces,3);
-    for j = 1:cell(i).nfaces
+    faces{i} = zeros(cells(i).nfaces,3);
+    for j = 1:cells(i).nfaces
       faces{i}(j,:) = str2double(split(fgetl(pfile)));
     end
   end
   
   % get the tetrahdron data
-  tets = {ncell};
+  tets = cell(1,ncell);
   for i = 1:ncell
-    tets{i} = zeros(cell(i).ntets,4);
-    for j = 1:cell(i).ntets
+    tets{i} = zeros(cells(i).ntets,4);
+    for j = 1:cells(i).ntets
       tets{i}(j,:) = str2double(split(fgetl(pfile)));
     end
   end
