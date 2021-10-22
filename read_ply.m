@@ -1,12 +1,23 @@
 %
-% read in a custom ply mesh file
+% read in a striated cell mesh file
 %
 % J.Rugis
-% 03.08.21
+% 27.09.21
 %
 %
 
-function [acinus, duct, verts, faces, tets, lnodes, lradii, lsegs] = read_ply(fname)
+function [verts, faces, ] = read_ply(fname)
+  % check ply file version
+  pfile = fopen(fname,'r');
+  V = get_version(pfile);
+  if ~strcmp(V, '1.2')
+    disp('ERROR: incorrect ply file version.');
+    return;
+  end
+  
+  fgetl(pfile);
+  fgetl(pfile);
+  
   % get the data counts
   pfile = fopen(fname,'r');
   nacinus = get_count(pfile, 'acinii');           
@@ -14,6 +25,7 @@ function [acinus, duct, verts, faces, tets, lnodes, lradii, lsegs] = read_ply(fn
   nlnode = get_count(pfile, 'lumen_node');
   nlseg = get_count(pfile, 'lumen_segment');
   ncell = get_count(pfile, 'cell');
+  nvert = get_count(pfile, 'vertex');
   skip_header(pfile);
 
   % get acinii info
@@ -64,12 +76,9 @@ function [acinus, duct, verts, faces, tets, lnodes, lradii, lsegs] = read_ply(fn
   end
   
   % get the vertex data
-  verts = cell(1,ncell);
-  for i = 1:ncell
-    verts{i} = zeros(cells(i).nverts,3);
-    for j = 1:cells(i).nverts
-      verts{i}(j,:) = str2double(split(fgetl(pfile)));
-    end
+  verts = zeros(nvert,3);
+  for i = 1:nvert
+    verts(i,:) = str2double(split(fgetl(pfile)));
   end
   
   % get the face data
@@ -109,4 +118,15 @@ function [] = skip_header(pfile)
       break;
     end
   end
+end
+
+function v = get_version(pfile, version)
+  while 1
+    tokens = split(fgetl(pfile));
+    if strcmp(tokens{1},'comment')
+      v = tokens{5};
+      break;
+    end
+  end
+
 end
